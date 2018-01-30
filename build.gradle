@@ -1,0 +1,43 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.8.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+group = 'de.dbfuhrpark.demo.spring.boot.security.oauth2.client'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+dependencyManagement {
+	imports {
+		mavenBom('org.springframework.cloud:spring-cloud-dependencies:Dalston.SR4')
+	}
+}
+
+dependencies {
+
+	compile('org.springframework.boot:spring-boot-starter')
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-security')
+	compile('org.springframework.security.oauth:spring-security-oauth2')
+	compile 'org.springframework.cloud:spring-cloud-starter-security'
+	compileOnly('org.projectlombok:lombok')
+
+	compile('org.springframework.cloud:spring-cloud-starter-feign')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}

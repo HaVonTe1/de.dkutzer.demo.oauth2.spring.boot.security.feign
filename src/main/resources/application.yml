@@ -1,0 +1,32 @@
+
+spring:
+  main:
+    banner-mode: "off"
+  application:
+    name: feign-oauth2-demo
+
+server:
+  port: 8080
+
+logging.level.org.keycloak: trace
+logging.level.org.springframework.security: trace
+
+person-service:
+  person:
+    url: /person
+  ribbon:
+    listOfServers: localhost:8081
+  eureka:
+      enabled: false
+  security:
+    oauth2:
+      auth-server-url: http://localhost:8280
+      realm: demo-realm
+      access-token-uri: ${person-service.security.oauth2.auth-server-url}/auth/realms/${person-service.security.oauth2.realm}/protocol/openid-connect/token
+      client:
+        id: demo-client
+        secret: fe8b3438-e75b-4386-ad21-e0ee44cbf386
+#        username: demo-user
+#        password: 123
+
+
