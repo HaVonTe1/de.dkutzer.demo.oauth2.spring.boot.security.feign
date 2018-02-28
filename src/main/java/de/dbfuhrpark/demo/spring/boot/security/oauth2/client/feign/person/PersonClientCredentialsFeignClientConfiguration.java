@@ -32,7 +32,7 @@ public class PersonClientCredentialsFeignClientConfiguration {
         details.setAccessTokenUri(accessTokenUri);
         details.setClientId(clientId);
         details.setClientSecret(clientSecret);
-
+        details.setId(clientId);
         return details;
     }
 }

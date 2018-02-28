@@ -38,6 +38,7 @@ public class PersonResourceOwnerFeignClientConfiguration {
         details.setClientId(clientId);
         details.setClientSecret(clientSecret);
         details.setAccessTokenUri(accessTokenUri);
+        details.setId(clientId);
         return details;
     }
 }
