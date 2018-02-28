@@ -15,7 +15,7 @@ A demo app to show
 
 #### configuration:
 The configuration is done in the `SecurityConfiguration.java`. The credentials are stored in the application.yml
-The Feign Clients configuration is done in `PersonFeignClientConfiguration.java`.
+The Feign Clients configuration is done in `Person${GRANT_TYPE}FeignClientConfiguration.java`.
 
 #### setup of the keycloak server:
 <pre>

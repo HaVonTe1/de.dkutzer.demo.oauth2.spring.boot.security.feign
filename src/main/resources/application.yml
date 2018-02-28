@@ -26,7 +26,7 @@ person-service:
       client:
         id: demo-client
         secret: fe8b3438-e75b-4386-ad21-e0ee44cbf386
-#        username: demo-user
-#        password: 123
+        username: demo-user
+        password: 123
 
 

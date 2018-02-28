@@ -11,7 +11,7 @@ import org.springframework.security.oauth2.client.token.grant.client.ClientCrede
 
 
 // no @Configuration here!!
-public class PersonFeignClientConfiguration {
+public class PersonClientCredentialsFeignClientConfiguration {
 
     @Value("${person-service.security.oauth2.access-token-uri}")
     private String accessTokenUri;
@@ -22,25 +22,12 @@ public class PersonFeignClientConfiguration {
     @Value("${person-service.security.oauth2.client.secret}")
     private String clientSecret;
 
-//    @Value("${person-service.security.oauth2.client.username}")
-//    private String username;
-//
-//    @Value("${person-service.security.oauth2.client.password}")
-//    private String password;
-
     @Bean
     public RequestInterceptor oauth2FeignRequestInterceptor() {
         return new OAuth2FeignRequestInterceptor(new DefaultOAuth2ClientContext(), oAuth2ProtectedResourceDetails());
     }
 
     private OAuth2ProtectedResourceDetails oAuth2ProtectedResourceDetails() {
-//        ResourceOwnerPasswordResourceDetails details = new ResourceOwnerPasswordResourceDetails();
-//        details.setPassword(password);
-//        details.setUsername(username);
-//        details.setClientId(clientId);
-//        details.setClientSecret(clientSecret);
-//        details.setAccessTokenUri(accessTokenUri);
-//        return details;
         ClientCredentialsResourceDetails details = new ClientCredentialsResourceDetails();
         details.setAccessTokenUri(accessTokenUri);
         details.setClientId(clientId);
